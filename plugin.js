@@ -134,7 +134,7 @@ module.exports = async (commandTree, prequire) => {
  * Main command handler routine
  *
  */
-const local = wsk => (_a, _b, fullArgv, modules, rawCommandString, _2, argvWithoutOptions, dashOptions) => new Promise((resolve, reject) => {
+const local = wsk => ({ argv: fullArgv, modules, argvNoOptions: argvWithoutOptions, parsedOptions: dashOptions }) => new Promise((resolve, reject) => {
   const { ui, errors } = modules
 
   // we always want to have "local" at the front, so e.g. invoke => local invoke
